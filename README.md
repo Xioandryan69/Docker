@@ -63,7 +63,8 @@ GRANT ALL PRIVILEGES TO nyavo;
 
 
  # connect sql
- sqlplus scott/oracle as sysdba 
+ sqlplus sys/oracle as sysdba 
+  sqlplus nyavo/tiger as sysdba 
 
 
 # list tables 
