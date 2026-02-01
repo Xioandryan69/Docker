@@ -67,5 +67,18 @@ GRANT ALL PRIVILEGES TO nyavo;
   sqlplus nyavo/tiger as sysdba 
 
 
+ALTER USER nyavo IDENTIFIED BY tiger ACCOUNT UNLOCK;
+
 # list tables 
  		SELECT table_name FROM user_tables;
+
+
+    docker exec -it oracle_db sqlplus sys/oracle as sysdba
+
+-- Create the user (Common user prefix C## is often required in 23ai Free)
+CREATE USER nyavo1 IDENTIFIED BY tiger;
+GRANT CONNECT, RESOURCE TO nyavo1;
+-- Allow the user to use space for tables
+ALTER USER nyavo1 QUOTA UNLIMITED ON USERS;
+EXIT;
+
