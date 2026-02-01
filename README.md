@@ -35,3 +35,36 @@ apt-get update && apt-get install -y osm2pgsql
 osm2pgsql -d gisdb -U postgres -H localhost -P 5432 --create --slim --hstore /tmp/madagascar-latest.osm.pbf
 
 psql -U postgres -d gisdb
+
+
+
+
+# oracle 
+# download image
+docker pull gvenzl/oracle-free:latest 
+
+# run container
+docker run -d --name oracle -p 1521:1521 -e ORACLE_PASSWORD=oracle gvenzl/oracle-free:latest
+
+
+# excecuter
+
+docker exec -ti oracle bash
+
+# entrer sql 
+ sqlplus vaniala/vaniala as sysdba 
+
+
+ # create user 
+CREATE USER nyavo IDENTIFIED BY tiger;
+
+# Grant all privileges
+GRANT ALL PRIVILEGES TO nyavo;
+
+
+ # connect sql
+ sqlplus scott/oracle as sysdba 
+
+
+# list tables 
+ 		SELECT table_name FROM user_tables;
