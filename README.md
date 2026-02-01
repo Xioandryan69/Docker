@@ -33,3 +33,5 @@ apt-get update && apt-get install -y osm2pgsql
 
 # This command is run INSIDE the container's bash shell
 osm2pgsql -d gisdb -U postgres -H localhost -P 5432 --create --slim --hstore /tmp/madagascar-latest.osm.pbf
+
+psql -U postgres -d gisdb
